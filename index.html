@@ -1,0 +1,1033 @@
+<!doctype html>
+<html class="dark" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>CyberLab Technologies | Secure Intelligence by Design</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Geist:wght@400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "secondary-fixed": "#e9ddff",
+              primary: "#dbfcff",
+              background: "#111317",
+              "inverse-primary": "#006970",
+              surface: "#111317",
+              "secondary-fixed-dim": "#d1bcff",
+              "surface-tint": "#00dbe9",
+              "on-secondary": "#3c0090",
+              "inverse-surface": "#e2e2e8",
+              "on-primary-fixed-variant": "#004f54",
+              "on-secondary-fixed": "#23005b",
+              "on-tertiary-fixed": "#40000f",
+              "on-tertiary-container": "#be003d",
+              "surface-container-low": "#1a1c20",
+              "secondary-container": "#7000ff",
+              "surface-variant": "#333539",
+              "tertiary-container": "#ffcdd0",
+              "outline-variant": "#3b494b",
+              "on-surface": "#e2e2e8",
+              outline: "#849495",
+              "inverse-on-surface": "#2f3035",
+              "tertiary-fixed": "#ffdadb",
+              "surface-container": "#1e2024",
+              "on-error": "#690005",
+              "on-primary": "#00363a",
+              "primary-fixed-dim": "#00dbe9",
+              "on-secondary-container": "#ddcdff",
+              "on-tertiary-fixed-variant": "#91002d",
+              "surface-container-high": "#282a2e",
+              tertiary: "#fff3f3",
+              "tertiary-fixed-dim": "#ffb2b8",
+              "surface-dim": "#111317",
+              "on-tertiary": "#67001d",
+              "surface-container-highest": "#333539",
+              "on-surface-variant": "#b9cacb",
+              error: "#ffb4ab",
+              "on-background": "#e2e2e8",
+              "surface-container-lowest": "#0c0e12",
+              "primary-container": "#00f0ff",
+              "primary-fixed": "#7df4ff",
+              "on-primary-container": "#006970",
+              "on-secondary-fixed-variant": "#5700c9",
+              "surface-bright": "#37393e",
+              "error-container": "#93000a",
+              "on-primary-fixed": "#002022",
+              secondary: "#d1bcff",
+              "on-error-container": "#ffdad6",
+            },
+            borderRadius: {
+              DEFAULT: "0.125rem",
+              lg: "0.25rem",
+              xl: "0.5rem",
+              full: "0.75rem",
+            },
+            spacing: {
+              "margin-desktop": "40px",
+              "max-width": "1440px",
+              gutter: "16px",
+              "margin-mobile": "16px",
+              unit: "4px",
+            },
+            fontFamily: {
+              "headline-xl": ["Inter"],
+              "body-md": ["Inter"],
+              "body-lg": ["Inter"],
+              "headline-lg-mobile": ["Inter"],
+              "headline-lg": ["Inter"],
+              "label-md": ["Geist"],
+              "label-sm": ["Geist"],
+              "mono-data": ["Geist"],
+            },
+            fontSize: {
+              "headline-xl": [
+                "48px",
+                {
+                  lineHeight: "1.1",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+              "body-md": [
+                "16px",
+                { lineHeight: "1.5", letterSpacing: "0em", fontWeight: "400" },
+              ],
+              "body-lg": [
+                "18px",
+                { lineHeight: "1.6", letterSpacing: "0em", fontWeight: "400" },
+              ],
+              "headline-lg-mobile": [
+                "24px",
+                {
+                  lineHeight: "1.2",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "600",
+                },
+              ],
+              "headline-lg": [
+                "32px",
+                {
+                  lineHeight: "1.2",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "600",
+                },
+              ],
+              "label-md": [
+                "14px",
+                {
+                  lineHeight: "1.4",
+                  letterSpacing: "0.05em",
+                  fontWeight: "500",
+                },
+              ],
+              "label-sm": [
+                "12px",
+                {
+                  lineHeight: "1.2",
+                  letterSpacing: "0.1em",
+                  fontWeight: "600",
+                },
+              ],
+              "mono-data": [
+                "13px",
+                { lineHeight: "1.5", letterSpacing: "0em", fontWeight: "400" },
+              ],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        background-color: #111317;
+        color: #e2e2e8;
+      }
+      .glass-panel {
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .neon-glow-primary {
+        box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
+      }
+      .neon-glow-primary:hover {
+        box-shadow: 0 0 35px rgba(0, 240, 255, 0.4);
+      }
+      .rim-light {
+        border: 1px solid rgba(219, 252, 255, 0.1);
+      }
+      .cyber-grid {
+        background-image: radial-gradient(
+          circle at 2px 2px,
+          rgba(219, 252, 255, 0.03) 1px,
+          transparent 0
+        );
+        background-size: 40px 40px;
+      }
+      .icon-lighting {
+        filter: drop-shadow(0 0 8px rgba(0, 240, 255, 0.3));
+      }
+    </style>
+  </head>
+  <body class="font-body-md text-body-md overflow-x-hidden">
+    <!-- TopAppBar -->
+    <nav
+      class="bg-surface/80 backdrop-blur-md fixed top-0 w-full z-50 border-b border-white/10 shadow-md shadow-primary/5"
+    >
+      <div
+        class="flex justify-between items-center h-20 px-margin-desktop max-w-[1440px] mx-auto"
+      >
+        <div class="flex items-center gap-4">
+          <img
+            alt="CyberLab Logo"
+            class="h-10 w-auto"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDf_5BZcMi_RsEzRCgttps9nEZ8rRckmjQbK1Eb21NbfQCskZIt7ATq9jnAFxgw-ILaw1RVN1_DtPrZEfPeA9NoOvNkGM_-ZQHPBSHXUDD1kCkuLodGO87sGQGMI2fK4yyMxzbvEpvEC1obf_iwaYWf36DlNxovTPZJaMbTcSZOwwiQCYVJcDBoj0MmiITZyy1Tg51Ox-olCnNEAOKI-E48dNounKHRR14phE2ldj6dNF8E4-7-p_IbXo5_qsSg7VrbQb54NxDKugw"
+          />
+          <span
+            class="text-headline-lg font-bold text-primary tracking-tighter hidden sm:block"
+            >CyberLab</span
+          >
+        </div>
+        <div class="hidden md:flex items-center gap-8">
+          <a
+            class="font-label-md text-label-md text-primary border-b-2 border-primary pb-1 scale-100 active:scale-95 transition-all"
+            href="#home"
+            >Home</a
+          >
+          <a
+            class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 px-2 py-1 rounded"
+            href="#about"
+            >About</a
+          >
+          <a
+            class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 px-2 py-1 rounded"
+            href="#services"
+            >Services</a
+          >
+          <a
+            class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 px-2 py-1 rounded"
+            href="#portfolio"
+            >Portfolio</a
+          >
+          <a
+            class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 px-2 py-1 rounded"
+            href="#contact"
+            >Contact</a
+          >
+        </div>
+        <button
+          class="bg-primary-container text-on-primary-container font-label-md text-label-md px-6 py-2 rounded-xl font-bold hover:brightness-110 active:scale-95 transition-all neon-glow-primary"
+        >
+          Get Started
+        </button>
+      </div>
+    </nav>
+    <!-- Hero Section -->
+    <section
+      class="relative h-screen flex items-center justify-center pt-20 overflow-hidden cyber-grid"
+      id="home"
+    >
+      <div class="absolute inset-0 z-0">
+        <div
+          class="absolute top-1/4 -left-20 w-96 h-96 bg-primary/10 rounded-full blur-[120px]"
+        ></div>
+        <div
+          class="absolute bottom-1/4 -right-20 w-[500px] h-[500px] bg-secondary/10 rounded-full blur-[150px]"
+        ></div>
+      </div>
+      <div
+        class="relative z-10 max-w-[1440px] mx-auto px-margin-desktop text-center"
+      >
+        <div
+          class="inline-flex items-center gap-2 glass-panel px-4 py-2 rounded-full mb-8 rim-light"
+          style="--mouse-x: 157.699951171875px; --mouse-y: 7.899993896484375px"
+        >
+          <span
+            class="material-symbols-outlined text-primary text-sm"
+            data-icon="verified_user"
+            >verified_user</span
+          >
+          <span
+            class="font-label-sm text-label-sm text-primary tracking-widest uppercase"
+            >Protocol Alpha Active</span
+          >
+        </div>
+        <h1
+          class="font-headline-xl text-headline-xl md:text-[72px] md:leading-[1.1] mb-6 max-w-4xl mx-auto"
+        >
+          Securing Digital
+          <span class="text-primary italic">Futures</span> Through Innovation
+        </h1>
+        <p
+          class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-10"
+        >
+          Empowering businesses through advanced cybersecurity, software
+          development, and cloud solutions. We build impenetrable digital
+          fortresses for the elite enterprise.
+        </p>
+        <div
+          class="flex flex-col md:flex-row items-center justify-center gap-6"
+        >
+          <button
+            class="w-full md:w-auto bg-primary-container text-on-primary-container font-label-md text-label-md px-10 py-4 rounded-xl font-bold text-lg hover:brightness-110 transition-all neon-glow-primary uppercase tracking-widest"
+          >
+            Get Started
+          </button>
+          <button
+            class="w-full md:w-auto glass-panel border-outline/20 text-on-surface font-label-md text-label-md px-10 py-4 rounded-xl font-bold text-lg hover:bg-white/5 transition-all uppercase tracking-widest"
+            style="
+              --mouse-x: 307.8333740234375px;
+              --mouse-y: 60.5999755859375px;
+            "
+          >
+            Request Consultation
+          </button>
+        </div>
+      </div>
+      <div
+        class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce flex flex-col items-center gap-2"
+      >
+        <span
+          class="font-label-sm text-label-sm text-on-surface-variant/50 uppercase tracking-tighter"
+          >Initialize Scroll</span
+        >
+        <span
+          class="material-symbols-outlined text-on-surface-variant"
+          data-icon="keyboard_double_arrow_down"
+          >keyboard_double_arrow_down</span
+        >
+      </div>
+    </section>
+    <!-- About Section -->
+    <section class="py-24 px-margin-desktop max-w-[1440px] mx-auto" id="about">
+      <div class="grid md:grid-cols-2 gap-24 items-center">
+        <div class="relative group">
+          <div
+            class="absolute -inset-4 bg-primary/20 blur-2xl group-hover:bg-primary/30 transition-all rounded-full"
+          ></div>
+          <div class="relative glass-panel rounded-xl p-2 rim-light">
+            <img
+              alt="CyberLab Infrastructure"
+              class="rounded-lg object-cover h-[500px] w-full"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuANIv0cS0jfwXZ_6FYXAwfXrvGSOarkP_bfa_Xi_2aQnFkauqB6jRgHbJaocgT9R9enEXG0hZsDwHmyziNCOHneVBMIjEfsWe5F5sLDcPskqOrtWRiJYbJW5qDSGC6vJmFOTqETrzwH7v7bj1h9IeoY9Zqpvh1chXVTYQwVc-fstYYE03GC56Q2_M3ZMu8qeoGmLU54IUAjFDMweRG3MZdhrazcGz0t_J0i3-tTqtm5O8_FzhzqJrJeUtFres2ipRi-EFpowP4S-sY"
+            />
+          </div>
+        </div>
+        <div>
+          <h2 class="font-headline-lg text-headline-lg mb-8">
+            Engineering Absolute <span class="text-primary">Reliability</span>
+          </h2>
+          <p class="font-body-lg text-body-lg text-on-surface-variant mb-12">
+            Our mission is to redefine technical excellence in an era of
+            unprecedented digital threats. We don't just react to the future; we
+            build the protocols that govern it.
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+            <div class="space-y-4">
+              <div class="flex items-center gap-3">
+                <div
+                  class="w-10 h-10 rounded-lg glass-panel flex items-center justify-center border-primary/30"
+                >
+                  <span
+                    class="material-symbols-outlined text-primary"
+                    data-icon="shield"
+                    >shield</span
+                  >
+                </div>
+                <h4 class="font-headline-lg text-headline-lg-mobile">
+                  Elite Security
+                </h4>
+              </div>
+              <p class="text-on-surface-variant font-body-md text-body-md">
+                Military-grade encryption and real-time threat intelligence for
+                your core assets.
+              </p>
+            </div>
+            <div class="space-y-4">
+              <div class="flex items-center gap-3">
+                <div
+                  class="w-10 h-10 rounded-lg glass-panel flex items-center justify-center border-primary/30"
+                >
+                  <span
+                    class="material-symbols-outlined text-primary"
+                    data-icon="speed"
+                    >speed</span
+                  >
+                </div>
+                <h4 class="font-headline-lg text-headline-lg-mobile">
+                  Rapid Deployment
+                </h4>
+              </div>
+              <p class="text-on-surface-variant font-body-md text-body-md">
+                Agile software development cycles designed for high-stakes
+                business environments.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Services Section -->
+    <section class="py-24 bg-surface-container-low/50" id="services">
+      <div class="max-w-[1440px] mx-auto px-margin-desktop">
+        <div class="text-center mb-20">
+          <span
+            class="font-label-sm text-label-sm text-primary uppercase tracking-[0.2em] mb-4 block"
+            >Our Expertise</span
+          >
+          <h2 class="font-headline-lg text-headline-lg">
+            Core Security Pillars
+          </h2>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Service Card 1: Cybersecurity -->
+          <div
+            class="glass-panel p-8 rounded-xl rim-light hover:scale-[1.02] transition-all group flex flex-col items-center text-center"
+            style="--mouse-x: 390px; --mouse-y: 133.5px"
+          >
+            <div
+              class="w-48 h-48 mb-8 flex items-center justify-center relative"
+            >
+              <div
+                class="absolute inset-0 bg-primary/10 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
+              ></div>
+              <img
+                alt="Cybersecurity"
+                class="w-full h-full object-contain icon-lighting relative z-10"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZ23DNvoAhH80A3QGgxbzYkI26Y1z2ywkHxOmBgX7l0Q95S4A_hLtoRTAnW86cz44Y3rU9HbjwmDCeKlvoEplWsN6P09u_HrhrKw_0TnYNzVeFuNJv0tomesBKannYgW2AwKHE81F8k5yR_IydMDCjoSLvnlFjWI7jR2HTSxcTbHYU_1LZdsDgW3IMNaAelXStZBYPV1jvrp7fZ4K73z2sj1ApELfezZzkIAcwex7LwpiB4XMzaLyKnZCP37re5whBGohUKHTFRYA"
+              />
+            </div>
+            <h3 class="font-headline-lg text-headline-lg mb-4">
+              Cybersecurity
+            </h3>
+            <p class="text-on-surface-variant mb-8 font-body-md">
+              End-to-end protection against zero-day exploits, phishing, and
+              ransomware. We build the perimeter that never sleeps.
+            </p>
+            <ul
+              class="space-y-3 font-label-sm text-label-sm text-primary mb-8 w-full text-left"
+            >
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 bg-primary rounded-full"></span>
+                PENETRATION TESTING
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 bg-primary rounded-full"></span>
+                INCIDENT RESPONSE
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 bg-primary rounded-full"></span>
+                COMPLIANCE AUDITS
+              </li>
+            </ul>
+          </div>
+          <!-- Service Card 2: Software Dev -->
+          <div
+            class="glass-panel p-8 rounded-xl rim-light border-primary/20 hover:scale-[1.02] transition-all group flex flex-col items-center text-center"
+            style="--mouse-x: 427.316650390625px; --mouse-y: 225.183349609375px"
+          >
+            <div
+              class="w-48 h-48 mb-8 flex items-center justify-center relative"
+            >
+              <div
+                class="absolute inset-0 bg-primary/10 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
+              ></div>
+              <img
+                alt="Software Development"
+                class="w-full h-full object-contain icon-lighting relative z-10"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7HFBimwIjBZysR86YQps0nd2z-KNRVJUSxOHhxLAyN60QpppOIjUgA3a2rb7Z3OkUgddDXt8Cbr3cqmYLx5fCNz49bP_9VSKcKLXBLnQ9dgPIRYTiSK-2xT4sk4IrONHHWoJDiyHktoPduKsVuGqstjsq4hM2D51sE2MQxNVt3K7jI9azJAg6rZPBwtYxFxCpU-ak_Tm1XD4KWvO68tahkjxKBViqWZaQDZPOdFj529CxC_gVIEL8qE5Gvrph3IYsm1b1pIV2dB0"
+              />
+            </div>
+            <h3 class="font-headline-lg text-headline-lg mb-4">Software Dev</h3>
+            <p class="text-on-surface-variant mb-8 font-body-md">
+              Custom enterprise solutions engineered with security at the source
+              code level. Scalable, performant, and robust.
+            </p>
+            <ul
+              class="space-y-3 font-label-sm text-label-sm text-primary mb-8 w-full text-left"
+            >
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 bg-primary rounded-full"></span>
+                FULL-STACK SYSTEMS
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 bg-primary rounded-full"></span> API
+                INTEGRATIONS
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 bg-primary rounded-full"></span> MOBILE
+                ECOSYSTEMS
+              </li>
+            </ul>
+          </div>
+          <!-- Service Card 3: Cloud Solutions -->
+          <div
+            class="glass-panel p-8 rounded-xl rim-light border-primary/20 hover:scale-[1.02] transition-all group flex flex-col items-center text-center"
+            style="--mouse-x: 35.316650390625px; --mouse-y: 556.183349609375px"
+          >
+            <div
+              class="w-48 h-48 mb-8 flex items-center justify-center relative"
+            >
+              <div
+                class="absolute inset-0 bg-primary/10 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
+              ></div>
+              <img
+                alt="Cloud Solutions"
+                class="w-full h-full object-contain icon-lighting relative z-10"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRRUH_jRyUV-X8oMo4ZKJ4a3SwAMZLvNKSf_KFru3EEsAk0nDQBdc8XkF8z5jJANRntYWLp4i6awmpOD-K-LWVCRQn-mEqFeFvY89lvHWhEes8C-6_qy6HcnHETpHhvGRGY6iIsgXsLqPaneeaSp0drZeoHhCqYZjcF1ZeXwJ9mECloRqySYC2KQRt_u1JxDiWhHQbCddyNFcQoU3klshKic3VLXikXone-r8nhVui5NPPwLZZV3mGzI0aw5jtCZixBScenLqQVcs"
+              />
+            </div>
+            <h3 class="font-headline-lg text-headline-lg mb-4">
+              Cloud Solutions
+            </h3>
+            <p class="text-on-surface-variant mb-8 font-body-md">
+              Transition your legacy infrastructure to a secure, distributed
+              cloud environment. 99.9% uptime guaranteed.
+            </p>
+            <ul
+              class="space-y-3 font-label-sm text-label-sm text-primary mb-8 w-full text-left"
+            >
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 bg-primary rounded-full"></span>
+                AZURE/AWS CLOUD
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 bg-primary rounded-full"></span>
+                DEVSECOPS PIPELINES
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 bg-primary rounded-full"></span> DATA
+                SOVEREIGNTY
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Why Choose Us -->
+    <section
+      class="py-24 px-margin-desktop max-w-[1440px] mx-auto overflow-hidden"
+    >
+      <div class="grid lg:grid-cols-12 gap-12 items-center">
+        <div class="lg:col-span-5">
+          <h2 class="font-headline-lg text-headline-lg mb-8">
+            The CyberLab <span class="text-primary">Difference</span>
+          </h2>
+          <p class="font-body-lg text-body-lg text-on-surface-variant mb-12">
+            We operate at the intersection of technical brilliance and strategic
+            foresight.
+          </p>
+          <div class="space-y-6">
+            <div
+              class="flex gap-4 p-4 rounded-lg hover:bg-white/5 transition-colors"
+            >
+              <span
+                class="material-symbols-outlined text-primary"
+                data-icon="headset_mic"
+                >headset_mic</span
+              >
+              <div>
+                <h4 class="font-headline-lg text-headline-lg-mobile">
+                  24/7 Global NOC
+                </h4>
+                <p class="text-on-surface-variant font-body-md">
+                  Constant surveillance of your digital assets by elite
+                  specialists.
+                </p>
+              </div>
+            </div>
+            <div
+              class="flex gap-4 p-4 rounded-lg hover:bg-white/5 transition-colors"
+            >
+              <span
+                class="material-symbols-outlined text-primary"
+                data-icon="workspace_premium"
+                >workspace_premium</span
+              >
+              <div>
+                <h4 class="font-headline-lg text-headline-lg-mobile">
+                  Certified Expertise
+                </h4>
+                <p class="text-on-surface-variant font-body-md">
+                  Our team holds world-leading certifications in CISSP, CEH, and
+                  AWS Security.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="lg:col-span-7 grid grid-cols-2 gap-4">
+          <div class="space-y-4 pt-12">
+            <div
+              class="glass-panel p-6 rounded-xl rim-light h-64 flex flex-col justify-end"
+              style="
+                --mouse-x: 350.3333740234375px;
+                --mouse-y: 16.60009765625px;
+              "
+            >
+              <span class="font-headline-xl text-headline-xl text-primary"
+                >500+</span
+              >
+              <p
+                class="font-label-sm text-label-sm uppercase tracking-widest opacity-60"
+              >
+                Threats Neutralized Daily
+              </p>
+            </div>
+            <div
+              class="glass-panel p-6 rounded-xl rim-light h-48 flex flex-col justify-end bg-gradient-to-br from-primary/10 to-transparent"
+              style="--mouse-x: 82px; --mouse-y: 169.60009765625px"
+            >
+              <span class="font-headline-xl text-headline-xl text-white"
+                >99%</span
+              >
+              <p
+                class="font-label-sm text-label-sm uppercase tracking-widest opacity-60"
+              >
+                Client Retention
+              </p>
+            </div>
+          </div>
+          <div class="space-y-4">
+            <div
+              class="glass-panel p-6 rounded-xl rim-light h-48 flex flex-col justify-end"
+              style="
+                --mouse-x: 73.6666259765625px;
+                --mouse-y: 182.60009765625px;
+              "
+            >
+              <span class="font-headline-xl text-headline-xl text-primary"
+                >15+</span
+              >
+              <p
+                class="font-label-sm text-label-sm uppercase tracking-widest opacity-60"
+              >
+                Global Labs
+              </p>
+            </div>
+            <div
+              class="glass-panel p-6 rounded-xl rim-light h-64 flex flex-col justify-end"
+              style="
+                --mouse-x: 143.6666259765625px;
+                --mouse-y: 223.60009765625px;
+              "
+            >
+              <span class="font-headline-xl text-headline-xl text-white"
+                >2.4ms</span
+              >
+              <p
+                class="font-label-sm text-label-sm uppercase tracking-widest opacity-60"
+              >
+                Avg Response Latency
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Portfolio Section -->
+    <section class="py-24 bg-surface-container-lowest" id="portfolio">
+      <div class="max-w-[1440px] mx-auto px-margin-desktop">
+        <div
+          class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8"
+        >
+          <div>
+            <span
+              class="font-label-sm text-label-sm text-primary uppercase tracking-[0.2em] mb-4 block"
+              >Showcase</span
+            >
+            <h2 class="font-headline-lg text-headline-lg">Elite Deployments</h2>
+          </div>
+          <button
+            class="text-primary font-label-md text-label-md flex items-center gap-2 hover:gap-4 transition-all uppercase tracking-widest group"
+          >
+            View Full Archive
+            <span
+              class="material-symbols-outlined transition-all"
+              data-icon="arrow_forward"
+              >arrow_forward</span
+            >
+          </button>
+        </div>
+        <div class="grid md:grid-cols-2 gap-8">
+          <div
+            class="group relative overflow-hidden rounded-xl border border-white/10"
+          >
+            <img
+              alt="Dashboard Project"
+              class="w-full h-80 object-cover group-hover:scale-105 transition-all duration-500"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuClbZdqrIf5eeP8xR20O8xdTAO0MejRQtCr73gOPojhG3Fn1drI2pmD5CSFZQTwqudA63JNtuG3jn5Eo3PLfeYZU5-og15nvJYqyNNZ71hO3U04Q-rUJCV09g3kh3iIXLJF85qYPRc9y_DpeEwepvJGrijZbI64Sa5fHChE_UFE4bTlwUF_f3hm49tRNwH8UaVP34HHU1y-VkdoYTTUKclm8i3LA8qmngQhooe-TBsjX61i7PBd8ltXOccOMTMuBPChD095xjfKxFI"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent p-8 flex flex-col justify-end"
+            >
+              <span class="font-label-sm text-label-sm text-primary mb-2"
+                >ENTERPRISE DASHBOARD</span
+              >
+              <h4 class="font-headline-lg text-headline-lg-mobile">
+                Nexus One Intelligence
+              </h4>
+            </div>
+          </div>
+          <div
+            class="group relative overflow-hidden rounded-xl border border-white/10"
+          >
+            <img
+              alt="Cloud Project"
+              class="w-full h-80 object-cover group-hover:scale-105 transition-all duration-500"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPc2eKHvKqX0fqMQdmJfZuW68yoko2N1h9cLTETLNmGu85x-dY5GlXUnVNRq8FUAJbxatxvrG-wrfaiLdL9F68NOoEdUsy866IA3Bi7dX8vxsnAxuANkxYOtH09xV4bMW5-qNqjqigAXD7nD5UlPbKdDTErARqeVezQGc3Tl_AzXJmnqIOrLUfEy-CkeQiJoavqvAamiVRkWK5upy_RHtLoYmSCbPbE76MdiuCUEyyTJTU8VoJW2bh23kGTAkTKXFj3llgLAlBEqI"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent p-8 flex flex-col justify-end"
+            >
+              <span class="font-label-sm text-label-sm text-primary mb-2"
+                >CLOUD INFRASTRUCTURE</span
+              >
+              <h4 class="font-headline-lg text-headline-lg-mobile">
+                Quantum Shield Node
+              </h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Contact Section -->
+    <section
+      class="py-24 px-margin-desktop max-w-[1440px] mx-auto"
+      id="contact"
+    >
+      <div
+        class="glass-panel p-12 rounded-2xl rim-light"
+        style="--mouse-x: 215px; --mouse-y: 548.300048828125px"
+      >
+        <div class="grid lg:grid-cols-2 gap-24">
+          <div>
+            <h2 class="font-headline-lg text-headline-lg mb-8">
+              Initiate <span class="text-primary">Contact</span>
+            </h2>
+            <p class="font-body-lg text-body-lg text-on-surface-variant mb-12">
+              Ready to secure your digital legacy? Our intelligence team is
+              standing by.
+            </p>
+            <div class="space-y-8">
+              <div class="flex items-center gap-6">
+                <div
+                  class="w-12 h-12 glass-panel flex items-center justify-center rounded-lg border-primary/20"
+                >
+                  <span
+                    class="material-symbols-outlined text-primary"
+                    data-icon="location_on"
+                    >location_on</span
+                  >
+                </div>
+                <div>
+                  <h5 class="font-headline-lg text-headline-lg-mobile">
+                    Headquarters
+                  </h5>
+                  <p class="text-on-surface-variant">
+                    Silicon Tower Level 42, Digital District
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-center gap-6">
+                <div
+                  class="w-12 h-12 glass-panel flex items-center justify-center rounded-lg border-primary/20"
+                >
+                  <span
+                    class="material-symbols-outlined text-primary"
+                    data-icon="alternate_email"
+                    >alternate_email</span
+                  >
+                </div>
+                <div>
+                  <h5 class="font-headline-lg text-headline-lg-mobile">
+                    Encrypted Mail
+                  </h5>
+                  <p class="text-on-surface-variant">
+                    intelligence@cyberlab.tech
+                  </p>
+                </div>
+              </div>
+              <a
+                class="inline-flex items-center gap-4 p-4 glass-panel rounded-xl hover:bg-white/5 transition-all w-full border-primary/20"
+                href="https://wa.me/1234567890"
+                style="--mouse-x: 107.75px; --mouse-y: 81.4501953125px"
+              >
+                <span
+                  class="material-symbols-outlined text-primary"
+                  data-icon="forum"
+                  >forum</span
+                >
+                <div>
+                  <h5 class="font-headline-lg text-headline-lg-mobile">
+                    WhatsApp Integration
+                  </h5>
+                  <p class="text-on-surface-variant text-sm">
+                    Direct line to our duty officer
+                  </p>
+                </div>
+              </a>
+            </div>
+          </div>
+          <form class="space-y-6">
+            <div class="grid grid-cols-2 gap-6">
+              <div class="space-y-2">
+                <label
+                  class="font-label-sm text-label-sm text-primary uppercase"
+                  >Full Name</label
+                >
+                <input
+                  class="w-full bg-white/5 border-outline/20 rounded-lg p-3 text-white focus:ring-1 focus:ring-primary focus:border-primary transition-all outline-none"
+                  placeholder="Agent Name"
+                  type="text"
+                />
+              </div>
+              <div class="space-y-2">
+                <label
+                  class="font-label-sm text-label-sm text-primary uppercase"
+                  >Company</label
+                >
+                <input
+                  class="w-full bg-white/5 border-outline/20 rounded-lg p-3 text-white focus:ring-1 focus:ring-primary focus:border-primary transition-all outline-none"
+                  placeholder="Organization"
+                  type="text"
+                />
+              </div>
+            </div>
+            <div class="space-y-2">
+              <label class="font-label-sm text-label-sm text-primary uppercase"
+                >Secure Email</label
+              >
+              <input
+                class="w-full bg-white/5 border-outline/20 rounded-lg p-3 text-white focus:ring-1 focus:ring-primary focus:border-primary transition-all outline-none"
+                placeholder="email@protocol.com"
+                type="email"
+              />
+            </div>
+            <div class="space-y-2">
+              <label class="font-label-sm text-label-sm text-primary uppercase"
+                >Service Inquiry</label
+              >
+              <select
+                class="w-full bg-white/5 border-outline/20 rounded-lg p-3 text-white focus:ring-1 focus:ring-primary focus:border-primary transition-all outline-none appearance-none"
+              >
+                <option class="bg-surface">Cybersecurity Audit</option>
+                <option class="bg-surface">Cloud Migration</option>
+                <option class="bg-surface">Custom Software Dev</option>
+              </select>
+            </div>
+            <div class="space-y-2">
+              <label class="font-label-sm text-label-sm text-primary uppercase"
+                >Message</label
+              >
+              <textarea
+                class="w-full bg-white/5 border-outline/20 rounded-lg p-3 text-white focus:ring-1 focus:ring-primary focus:border-primary transition-all outline-none"
+                placeholder="Project brief..."
+                rows="4"
+              ></textarea>
+            </div>
+            <button
+              class="w-full bg-primary-container text-on-primary-container font-label-md text-label-md py-4 rounded-xl font-bold hover:brightness-110 neon-glow-primary transition-all uppercase tracking-widest"
+            >
+              Submit Transmission
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+    <!-- Footer -->
+    <footer
+      class="bg-surface-container-lowest w-full py-16 px-margin-desktop border-t border-outline-variant/20"
+    >
+      <div
+        class="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-[1440px] mx-auto items-start"
+      >
+        <div class="space-y-6">
+          <div class="flex items-center gap-4">
+            <img
+              alt="CyberLab Logo"
+              class="h-12 w-auto"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDf_5BZcMi_RsEzRCgttps9nEZ8rRckmjQbK1Eb21NbfQCskZIt7ATq9jnAFxgw-ILaw1RVN1_DtPrZEfPeA9NoOvNkGM_-ZQHPBSHXUDD1kCkuLodGO87sGQGMI2fK4yyMxzbvEpvEC1obf_iwaYWf36DlNxovTPZJaMbTcSZOwwiQCYVJcDBoj0MmiITZyy1Tg51Ox-olCnNEAOKI-E48dNounKHRR14phE2ldj6dNF8E4-7-p_IbXo5_qsSg7VrbQb54NxDKugw"
+            />
+            <span
+              class="font-headline-lg text-headline-lg font-bold text-primary"
+              >CyberLab</span
+            >
+          </div>
+          <p class="font-body-md text-body-md text-on-surface-variant max-w-xs">
+            The global standard for professional cybersecurity and software
+            solutions.
+          </p>
+        </div>
+        <div class="space-y-4">
+          <h6
+            class="font-label-sm text-label-sm text-primary uppercase tracking-widest font-bold"
+          >
+            Solutions
+          </h6>
+          <ul class="space-y-2">
+            <li class="">
+              <a
+                class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors"
+                href="#"
+                >Risk Assessment</a
+              >
+            </li>
+            <li class="">
+              <a
+                class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors"
+                href="#"
+                >Cloud Defense</a
+              >
+            </li>
+            <li class="">
+              <a
+                class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors"
+                href="#"
+                >App Development</a
+              >
+            </li>
+            <li class="">
+              <a
+                class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors"
+                href="#"
+                >SOC-as-a-Service</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="space-y-4">
+          <h6
+            class="font-label-sm text-label-sm text-primary uppercase tracking-widest font-bold"
+          >
+            Company
+          </h6>
+          <ul class="space-y-2">
+            <li class="">
+              <a
+                class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors"
+                href="#"
+                >Privacy Policy</a
+              >
+            </li>
+            <li class="">
+              <a
+                class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors"
+                href="#"
+                >Terms of Service</a
+              >
+            </li>
+            <li class="">
+              <a
+                class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors"
+                href="#"
+                >Security Audit</a
+              >
+            </li>
+            <li class="">
+              <a
+                class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors"
+                href="#"
+                >Global Labs</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="space-y-6">
+          <h6
+            class="font-label-sm text-label-sm text-primary uppercase tracking-widest font-bold"
+          >
+            Protocol Status
+          </h6>
+          <div
+            class="glass-panel p-4 rounded-lg flex items-center gap-3"
+            style="--mouse-x: 95px; --mouse-y: 26.91650390625px"
+          >
+            <div
+              class="w-2 h-2 bg-primary rounded-full animate-pulse shadow-[0_0_8px_#00f0ff]"
+            ></div>
+            <span class="font-label-sm text-label-sm text-primary uppercase"
+              >Systems Nominal</span
+            >
+          </div>
+          <div class="flex gap-4">
+            <a
+              class="w-10 h-10 glass-panel flex items-center justify-center rounded-full hover:text-primary transition-all"
+              href="#"
+              style="--mouse-x: 1px; --mouse-y: 31.0166015625px"
+            >
+              <span class="material-symbols-outlined" data-icon="terminal"
+                >terminal</span
+              >
+            </a>
+            <a
+              class="w-10 h-10 glass-panel flex items-center justify-center rounded-full hover:text-primary transition-all"
+              href="#"
+              style="--mouse-x: 37px; --mouse-y: 25.0166015625px"
+            >
+              <span class="material-symbols-outlined" data-icon="code"
+                >code</span
+              >
+            </a>
+            <a
+              class="w-10 h-10 glass-panel flex items-center justify-center rounded-full hover:text-primary transition-all"
+              href="#"
+            >
+              <span class="material-symbols-outlined" data-icon="hub">hub</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div
+        class="max-w-[1440px] mx-auto mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between gap-4"
+      >
+        <span class="font-label-sm text-label-sm text-on-surface-variant/40"
+          >© 2024 CyberLab Technologies Ltd. All Rights Reserved. Secure
+          Intelligence by Design.</span
+        >
+        <div class="flex gap-8">
+          <span class="font-label-sm text-label-sm text-primary"
+            >ENCRYPTED-256</span
+          >
+          <span class="font-label-sm text-label-sm text-on-surface-variant/40"
+            >v.1.0.42-STABLE</span
+          >
+        </div>
+      </div>
+    </footer>
+    <script>
+      // Smooth scrolling for navigation
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth",
+          });
+        });
+      });
+
+      // Interactive hover effect for service cards
+      const cards = document.querySelectorAll(".glass-panel");
+      cards.forEach((card) => {
+        card.addEventListener("mousemove", (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          card.style.setProperty("--mouse-x", `${x}px`);
+          card.style.setProperty("--mouse-y", `${y}px`);
+        });
+      });
+    </script>
+  </body>
+</html>
